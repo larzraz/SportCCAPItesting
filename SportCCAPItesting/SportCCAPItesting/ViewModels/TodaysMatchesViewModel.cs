@@ -92,9 +92,10 @@ namespace SportCCAPItesting.ViewModels
                             {
                                 matchIndex = country1.Matches.IndexOf(obj);
                                     country1.Matches[matchIndex].Result = match.Result;
+                                    country1.Matches[matchIndex].Minutes = match.Minutes;
                                     //country1.Matches.RemoveAt(matchIndex);
                                     //country1.Matches.Insert(matchIndex, match);
-                            }
+                                }
 
                             foreach (Competitor com in match.Competitors.Competitor)
                                 {
@@ -123,12 +124,12 @@ namespace SportCCAPItesting.ViewModels
                 {
                     Countries.Add(country);
                 }
-                else
-                {
-                    countryIndex = Countries.IndexOf(country);
-                    Countries.RemoveAt(countryIndex);
-                    Countries.Insert(countryIndex, country);
-                }
+                //else
+                //{
+                //    countryIndex = Countries.IndexOf(country);
+                //    Countries.RemoveAt(countryIndex);
+                //    Countries.Insert(countryIndex, country);
+                //}
             }
         }
 
@@ -138,18 +139,18 @@ namespace SportCCAPItesting.ViewModels
             {
                 if (country2.Matches.Count >= 1)
                 {
-                    var country2Index = 0;
-                    if (!CountriesWithGames.Contains(country2))
+                    Country obj = CountriesWithGames.FirstOrDefault(x => x.Id == country2.Id);
+                    if(obj == null)
                     {
                         CountriesWithGames.Add(country2);
                     }
-                    else
-                    {
-                        country2Index = CountriesWithGames.IndexOf(country2);
-                        CountriesWithGames.RemoveAt(country2Index);
-                        CountriesWithGames.Insert(country2Index, country2);
-                        UpdateMatches(country2);
-                    }
+                    //else
+                    //{
+                    //    country2Index = CountriesWithGames.IndexOf(country2);
+                    //    CountriesWithGames.RemoveAt(country2Index);
+                    //    CountriesWithGames.Insert(country2Index, country2);
+                    //    UpdateMatches(country2);
+                    //}
                 }
             }
         }

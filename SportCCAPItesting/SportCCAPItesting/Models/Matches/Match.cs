@@ -13,6 +13,7 @@ namespace SportCCAPItesting.Models
 
         private bool _isVisible = false;
         private string _minutes;
+        private Result _result;
 
         [XmlElement(ElementName = "Competitors")]
         public Competitors Competitors { get; set; }
@@ -31,7 +32,7 @@ namespace SportCCAPItesting.Models
         [XmlAttribute(AttributeName = "Published")]
         public string Published { get; set; }
         [XmlElement(ElementName = "Result")]
-        public Result Result { get; set; }
+        public Result Result { get{ return _result; } set { _result = value; OnPropertyChanged("Result"); } }
 
         public Competitor HomeTeam { get; set; }
         public Competitor AwayTeam { get; set; }
