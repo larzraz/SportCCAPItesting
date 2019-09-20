@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Xml.Serialization;
 
 namespace SportCCAPItesting.Models
@@ -25,7 +26,7 @@ namespace SportCCAPItesting.Models
         public string ContestCountry { get; set; }
 
         [XmlElement(ElementName = "Match")]
-        public List<Match> Match { get; set; }
+        public ObservableCollection<Match> Match { get; set; }
 
         [XmlAttribute(AttributeName = "ContestGroupId")]
         public string ContestGroupId { get; set; }

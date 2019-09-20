@@ -36,7 +36,14 @@ namespace SportCCAPItesting.Models
         public Competitor HomeTeam { get; set; }
         public Competitor AwayTeam { get; set; }
         public bool IsVisible { get { return _isVisible; } set { _isVisible = value; OnPropertyChanged("IsVisible"); } }
-        public string Teams { get { return $"{HomeTeam.Name} - {AwayTeam.Name}"; } }
+        public string Teams
+        {
+            get
+            {
+                if (HomeTeam == null)
+                { return "null"; } else
+                
+                    return  $"{HomeTeam.Name} - {AwayTeam.Name}"; } }
         public ObservableCollection<Goal> Goals { get; set; }
     }
 

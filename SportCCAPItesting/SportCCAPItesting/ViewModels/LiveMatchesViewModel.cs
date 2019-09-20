@@ -14,7 +14,7 @@ namespace SportCCAPItesting.ViewModels
        
         public ObservableCollection<Match> Matches { get; set; }
         public ObservableCollection<ListOfGoals> ListOfGoal { get; set; }
-        public IList<Country> CountriesWithGames { get; set; }
+        public ObservableCollection<Country> CountriesWithGames { get; set; }
        //public Match Match = new Match();
         private DataManager dataManager = new DataManager();
         public Command OpenGoalScorersCommand { get; set; }

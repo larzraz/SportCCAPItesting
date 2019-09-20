@@ -191,16 +191,7 @@ namespace SportCCAPItesting.Data
 
         public DataManager()
         {
-            //int intervalInSeconds = 30;
-
-            //Sport sportww = new Sport();
-            //sportww.Id = "1";
-
-            //Device.StartTimer(TimeSpan.FromSeconds(intervalInSeconds), () =>
-            //{
-            //    Device.BeginInvokeOnMainThread(() => GetAllLiveMatchesForTodayForOneSport(sport));
-            //    return true;
-            //});
+            
         }
     }
 
