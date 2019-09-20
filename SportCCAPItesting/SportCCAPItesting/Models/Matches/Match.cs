@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Text;
+using System.Xml.Serialization;
+
+namespace SportCCAPItesting.Models
+{
+    [XmlRoot(ElementName = "Match")]
+    public class Match : BaseModel
+    {
+
+        private bool _isVisible = false;
+        private string _minutes;
+
+        [XmlElement(ElementName = "Competitors")]
+        public Competitors Competitors { get; set; }
+        [XmlAttribute(AttributeName = "id")]
+        public string Id { get; set; }
+        [XmlAttribute(AttributeName = "status")]
+        public string Status { get; set; }
+        [XmlAttribute(AttributeName = "date")]
+        public string Date { get; set; }
+        [XmlAttribute(AttributeName = "CurentPeriod")]
+        public string CurentPeriod { get; set; }
+        [XmlAttribute(AttributeName = "minutes")]
+        public string Minutes { get { return _minutes; } set { _minutes = value; OnPropertyChanged("Minutes"); } }
+        [XmlAttribute(AttributeName = "commentary")]
+        public string Commentary { get; set; }
+        [XmlAttribute(AttributeName = "Published")]
+        public string Published { get; set; }
+        [XmlElement(ElementName = "Result")]
+        public Result Result { get; set; }
+
+        public Competitor HomeTeam { get; set; }
+        public Competitor AwayTeam { get; set; }
+        public bool IsVisible { get { return _isVisible; } set { _isVisible = value; OnPropertyChanged("IsVisible"); } }
+        public string Teams { get { return $"{HomeTeam.Name} - {AwayTeam.Name}"; } }
+        public ObservableCollection<Goal> Goals { get; set; }
+    }
+
+    public class MatchList : List<Match>
+    {
+        public string Teams { get; set; }
+        public List<Match> Matches => this;
+    }
+}

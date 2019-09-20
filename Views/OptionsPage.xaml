@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SportCCAPItesting.Views.OptionsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="name_Label" Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button x:Name="venues_Button" Text="Stadions" Clicked="Venues_Button_Clicked"></Button>
+            <Button x:Name="players_Button" Text="Spillere" Clicked="Players_Button_Clicked"/>
+            <Button x:Name="clubs_Button" Text="Klubber" Clicked="Clubs_Button_Clicked"/>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

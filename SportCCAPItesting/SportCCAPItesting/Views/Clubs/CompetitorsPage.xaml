@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SportCCAPItesting.Views.CompetitorsPage">
+  <ListView x:Name="MyListView"
+            ItemsSource="{Binding}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement"
+            RowHeight="-1"
+            HasUnevenRows="True"
+            BackgroundColor="Khaki">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame Margin="0,5,0,5" BackgroundColor="Khaki">
+                        <Grid HorizontalOptions="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60"/>
+
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Label HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                           
+
+                        </Grid>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+        <!--Custom View Cells-->
+    <!--
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout>
+            <Label Text="{Binding Text}" 
+                   d:Text="{Binding .}"
+                   Style="{DynamicResource ListItemTextStyle}" />
+            <Label Text="{Binding Detail}" 
+                   d:Text="Detail"
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    -->
+  </ListView>
+</ContentPage>
