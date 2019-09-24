@@ -46,6 +46,8 @@ namespace SportCCAPItesting.Models
                 
                     return  $"{HomeTeam.Name} - {AwayTeam.Name}"; } }
         public ObservableCollection<Goal> Goals { get; set; }
+
+        public string CountryID { get; set; } = "1";
     }
 
     public class MatchList : List<Match>

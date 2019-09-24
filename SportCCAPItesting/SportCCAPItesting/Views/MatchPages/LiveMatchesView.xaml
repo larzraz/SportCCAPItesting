@@ -33,7 +33,7 @@
                             </Grid.ColumnDefinitions>
                            
                             <Label HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  Grid.Row="0" Grid.Column="0" Text="{Binding Teams}" />
-                            <Label HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  Grid.Row="0"  Grid.Column="1" Text="{Binding Result.ScoreInfo.Score[1].Name, FallbackValue=Ikke Startet Endnu}" />
+                            <Label HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  Grid.Row="0"  Grid.Column="1" Text="{Binding Result.ScoreInfo.Score[0].Name, FallbackValue=Ikke Startet Endnu}" />
                             <Label HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Minutes}" />
                             <!--<Label HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  Grid.Row="0" Grid.Column="1" Text=" - " />-->
                             <!--<Grid  Grid.Row="2" Grid.ColumnSpan="3" IsVisible="{Binding IsVisible}">

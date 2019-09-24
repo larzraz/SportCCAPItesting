@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportCCAPItesting.Models.Matches;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
@@ -28,12 +29,14 @@ namespace SportCCAPItesting.Models
     }
 
     [XmlRoot(ElementName = "sportccbetdata")]
-    public class Sportccbetdata
+    public class Sportccbetdata : BaseModel
     {
+        private CountryList _countryList;
+
         [XmlElement(ElementName = "SportList")]
         public SportList SportList { get; set; }
         [XmlElement(ElementName = "CountryList")]
-        public CountryList CountryList { get; set; }
+        public CountryList CountryList { get { return _countryList; } set { _countryList = value; OnPropertyChanged("CountryList"); } }
 
         [XmlElement(ElementName = "BookmakerList")]
         public BookmakerList BookmakerList { get; set; }
@@ -58,6 +61,10 @@ namespace SportCCAPItesting.Models
         public Category Category { get; set; }
         [XmlElement(ElementName = "Error")]
         public Error Error { get; set; }
+        [XmlElement(ElementName = "events")]
+        public Events Events { get; set; }
+        [XmlAttribute(AttributeName = "latest")]
+        public string Latest { get; set; }
 
         [XmlElement(ElementName = "SubContests")]
         public SubContests SubContests { get; set; }

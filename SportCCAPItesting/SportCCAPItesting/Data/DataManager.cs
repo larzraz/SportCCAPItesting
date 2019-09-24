@@ -189,6 +189,18 @@ namespace SportCCAPItesting.Data
             return SportCollection;
         }
 
+        public async Task<Sportccbetdata> GetAllEvents()
+        {
+            HttpClient client = GetClient();
+            string result = await client.GetStringAsync(Url + "Eventlist.aspx?" + authID);
+            XmlSerializer Deserializer = new XmlSerializer(typeof(Sportccbetdata), new XmlRootAttribute("sportccbetdata"));
+            var reader = new StringReader(result);
+            Sportccbetdata SportCollection = (Sportccbetdata)Deserializer.Deserialize(reader);
+
+
+            return SportCollection;
+        }
+
         public DataManager()
         {
             
