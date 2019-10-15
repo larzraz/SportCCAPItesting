@@ -6,50 +6,35 @@
              mc:Ignorable="d"
              x:Class="SportCCAPItesting.Views.MatchPages.LiveMatchesView">
     <ListView x:Name="MyListView"
-            ItemsSource="{Binding Matches}"
-            ItemTapped="Handle_ItemTapped"
-            
+            ItemsSource="{Binding CountriesWithGames}"
+            ItemTapped="Handle_ItemTapped"            
             CachingStrategy="RecycleElement"
+            GroupDisplayBinding="{Binding Name}"
+            IsGroupingEnabled="True"
             RowHeight="-1"
             HasUnevenRows="True"
-            BackgroundColor="#2D3334">
+            BackgroundColor="#304654">
         <ListView.ItemTemplate>
 
             <DataTemplate>
                 <ViewCell>
-                    <Frame Margin="0,5,0,5" BackgroundColor="AliceBlue" >
-                        <Grid HorizontalOptions="Center">
+                    <Frame Margin="15,2,15,2" Padding="4,4,20,4" BackgroundColor="#3e5366" >
+                        <Grid >
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="60" />
                                 <RowDefinition Height="20" />
-                                <RowDefinition/>
-                                <RowDefinition/>
+                                <RowDefinition Height="20" />
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                           
-                            <Label HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  Grid.Row="0" Grid.Column="0" Text="{Binding Teams}" />
-                            <Label HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  Grid.Row="0"  Grid.Column="1" Text="{Binding Result.ScoreInfo.Score[0].Name, FallbackValue=Ikke Startet Endnu}" />
-                            <Label HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Minutes}" />
-                            <!--<Label HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  Grid.Row="0" Grid.Column="1" Text=" - " />-->
-                            <!--<Grid  Grid.Row="2" Grid.ColumnSpan="3" IsVisible="{Binding IsVisible}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition Height="400" />
-                                </Grid.RowDefinitions>
-                                <Label HorizontalOptions="Center"  VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Text="Hjørnespark: "/>
-                                <Label HorizontalOptions="Center"  VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Text="{Binding Result.ScoreInfo.CornerInfo.Corners.Name,FallbackValue=0:0}"/>
-                                <Button x:Name="OpenGoalsBtn" Text="Se mål" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" Grid.Column="1" Clicked="OpenGoalsBtn_Clicked"/>
-                            </Grid>-->
+                            <Label HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="3,3,0,3"  BackgroundColor="#3481ad" TextColor="#a7d5f9" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Text="{Binding MatchTime}"/>
+                            <Label HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"  Grid.Row="0"  Grid.Column="1" TextColor="#C4ced8" Text="{Binding HomeTeam.Name}" />
+                            <Label HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" Margin="0,0,0,5"  Grid.Row="1"  Grid.Column="1" TextColor="#C4ced8" Text="{Binding AwayTeam.Name}" />
+                            <Label HorizontalOptions="End"  VerticalOptions="CenterAndExpand"  Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Margin="0,0,5,0" TextColor="#C4ced8" Text="{Binding MatchDate}" />
+                         
                         </Grid>
                         
                     </Frame>

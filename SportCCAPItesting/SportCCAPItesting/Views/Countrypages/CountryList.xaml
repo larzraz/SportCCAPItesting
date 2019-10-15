@@ -6,7 +6,7 @@
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              mc:Ignorable="d"
              x:Class="SportCCAPItesting.Views.CountryList">
-  <ListView x:Name="MyListView"
+    <ListView x:Name="MyListView"
             ItemsSource="{Binding}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement"
@@ -24,11 +24,9 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="175"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Label HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"  Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
-                            <Label HorizontalOptions="End"  VerticalOptions="CenterAndExpand"  Grid.Row="0" Grid.Column="1" Text="{Binding Id}"/>
                         </Grid>
                     </Frame>
                 </ViewCell>

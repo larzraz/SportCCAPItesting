@@ -1,5 +1,6 @@
 ﻿using SportCCAPItesting.Data;
 using SportCCAPItesting.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -9,13 +10,29 @@ namespace SportCCAPItesting.ViewModels
     public class SportListViewModel : BaseViewModel
     {
         private DataManager dataManager = new DataManager();
+        private ObservableCollection<Sport> _sportsCollection;
+
         public Country Country { get; set; }
         public Sport Sport { get; set; }
-        public ObservableCollection<Sport> SportsCollection { get; set; }
+        public ObservableCollection<Sport> SportsCollection
+        {
+            get { return _sportsCollection; }
+            set
+            {
+                _sportsCollection = value;
+
+                Action FillSportsCollection = async () =>
+        {
+            await Update();
+        }; 
+
+                FillSportsCollection();
+            }
+        }
         public Command LoadSportsCommand { get; set; }
         public SportListViewModel()
         {
-            Update();
+            
             SportsCollection = new ObservableCollection<Sport>();
             LoadSportsCommand = new Command(async () => await ExecuteLoadSportsCommand());
         }

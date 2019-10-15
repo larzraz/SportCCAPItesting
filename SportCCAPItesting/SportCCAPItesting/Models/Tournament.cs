@@ -7,11 +7,12 @@ namespace SportCCAPItesting.Models
     [XmlRoot(ElementName = "Tournament")]
     public class Tournament
     {
+        private string _name;
         [XmlAttribute(AttributeName = "id")]
         public string Id { get; set; }
 
         [XmlAttribute(AttributeName = "name")]
-        public string Name { get; set; }
+        public string Name { get { return _name.ToUpper(); } set { _name = value; } }
 
         [XmlAttribute(AttributeName = "contestgroupid")]
         public string Contestgroupid { get; set; }

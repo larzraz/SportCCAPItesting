@@ -16,9 +16,12 @@ namespace SportCCAPItesting.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TodaysMatches : ContentPage
     {
-        TodaysMatchesViewModel tmv = new TodaysMatchesViewModel();
-        public TodaysMatches()
+        DateTime Dt;
+        TodaysMatchesViewModel tmv;
+        public TodaysMatches(DateTime dt)
         {
+            Dt = dt;
+            tmv = new TodaysMatchesViewModel(dt);
             BindingContext = tmv;
             InitializeComponent();
            
@@ -28,10 +31,10 @@ namespace SportCCAPItesting.Views
         {
             if (e.Item == null)
                 return;
-            tmv.Country = (Country)e.Item;
-            await Navigation.PushModalAsync(
-                  new LiveMatchesView(tmv.Country))  ;
-
+            //tmv.Country = (Country)e.Item;
+            //await Navigation.PushModalAsync(
+            //      new LiveMatchesView(tmv.Country))  ;
+            await DisplayAlert("Liga", "KampInfo", "OK");
             
             //Deselect Item
             ((ListView)sender).SelectedItem = null;

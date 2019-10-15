@@ -96,11 +96,11 @@ namespace SportCCAPItesting.Data
             return SportCollection;
         }
 
-        public async Task<Sportccbetdata> GetAllMatchesForTodayForOneSport(Sport sport)
+        public async Task<Sportccbetdata> GetAllMatchesForTodayForOneSport(Sport sport, DateTime dt)
         {
             HttpClient client = GetClient();
-            DateTime today = DateTime.Today;
-            string result = await client.GetStringAsync(Url + "sportccfixtures.aspx?sport_id=" + sport.Id + "&" + authID + "&" + "fromDate=" + today + "&toDate=" + today);
+            
+            string result = await client.GetStringAsync(Url + "sportccfixtures.aspx?sport_id=" + sport.Id + "&" + authID + "&" + "fromDate=" + dt + "&toDate=" + dt);
             XmlSerializer Deserializer = new XmlSerializer(typeof(Sportccbetdata), new XmlRootAttribute("sportccbetdata"));
             var reader = new StringReader(result);
             Sportccbetdata SportCollection = (Sportccbetdata)Deserializer.Deserialize(reader);
@@ -179,14 +179,26 @@ namespace SportCCAPItesting.Data
 
         public async Task<Sportccbetdata> GetAllLiveMatchesForTodayForOneSport(Sport sport)
         {
+            Sportccbetdata SportCollection = new Sportccbetdata();
             HttpClient client = GetClient();
-            string result = await client.GetStringAsync(Url + "SportccLive.aspx?sport_id=" + sport.Id + "&" + authID);
-            XmlSerializer Deserializer = new XmlSerializer(typeof(Sportccbetdata), new XmlRootAttribute("sportccbetdata"));
-            var reader = new StringReader(result);
-            Sportccbetdata SportCollection = (Sportccbetdata)Deserializer.Deserialize(reader);
-
-
+            try
+            {
+                string result = await client.GetStringAsync(Url + "SportccLive.aspx?sport_id=" + sport.Id + "&" + authID);
+                XmlSerializer Deserializer = new XmlSerializer(typeof(Sportccbetdata), new XmlRootAttribute("sportccbetdata"));
+                var reader = new StringReader(result);
+                SportCollection = (Sportccbetdata)Deserializer.Deserialize(reader);
+                return SportCollection;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
             return SportCollection;
+
+
+
+
+
         }
 
         public async Task<Sportccbetdata> GetAllEvents()
