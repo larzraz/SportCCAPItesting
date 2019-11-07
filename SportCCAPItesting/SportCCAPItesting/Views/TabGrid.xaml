@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SportCCAPItesting.Views.TabGrid">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+        <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#40aef7"/>
+                <Setter Property="BackgroundColor" Value="#3698d9"/>
+        </Style>
+        <Style x:Key="LabelChangedStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="Aqua"/>
+        </Style>
+     </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        
+        <StackLayout BackgroundColor="#324458">
+
+            <Label Text="Football" HorizontalOptions="Center" VerticalTextAlignment="Center" TextColor="White" FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" HeightRequest="60"></Label>
+
+            <Grid BackgroundColor="#324458" Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.95*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Frame Margin="10,0,0,8" Padding="0" BackgroundColor="#3698d9" HeightRequest="40" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" CornerRadius="15">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="Position0Label" Grid.Column="0" Text="{Binding TodayDateMinusTwoString}" Style="{StaticResource LabelStyle}"  HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                     Binding="{Binding HasPropertyValueChangedTodayMinus2}"
+                                             Value="True">
+                                    <Setter Property="Style" Value="{StaticResource LabelChangedStyle}" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding ChangeDateCommand}" CommandParameter="0" NumberOfTapsRequired="2" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label x:Name="Position1Label" Grid.Column="1" Text="{Binding TodayDateMinusOneString}"  Style="{StaticResource LabelStyle}" HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand">
+                            <Label.Triggers>
+
+                                <DataTrigger TargetType="Label"
+                                     Binding="{Binding HasPropertyValueChangedTodayMinus1}"
+                                             Value="True">
+                                    <Setter Property="Style" Value="{StaticResource LabelChangedStyle}" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Label x:Name="Position2Label" Grid.Column="2" Text="{Binding TodayString}"  Style="{StaticResource LabelStyle}" HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand">
+                            <Label.Triggers>
+
+                                <DataTrigger TargetType="Label"
+                                     Binding="{Binding HasPropertyValueChangedToday}"
+                                             Value="True">
+                                    <Setter Property="Style" Value="{StaticResource LabelChangedStyle}" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Label x:Name="Position3Label" Grid.Column="3" Text="{Binding TodayDatePlusOneString}" Style="{StaticResource LabelStyle}"  HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" >
+                            <Label.Triggers>
+
+                                <DataTrigger TargetType="Label"
+                                     Binding="{Binding HasPropertyValueChangedTodayPlus1}"
+                                             Value="True">
+                                    <Setter Property="Style" Value="{StaticResource LabelChangedStyle}" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Label x:Name="Position4Label" Grid.Column="4" Text="{Binding TodayDatePlusTwoString}" Style="{StaticResource LabelStyle}"  HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" >
+                        <Label.Triggers>
+
+                            <DataTrigger TargetType="Label"
+                                     Binding="{Binding HasPropertyValueChangedTodayPlus2}"
+                                             Value="True">
+                                <Setter Property="Style" Value="{StaticResource LabelChangedStyle}" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                        </Label>
+                    </Grid>
+                </Frame>
+                <Frame Margin="2,0,5,8" Padding="0" BackgroundColor="#3698d9" HeightRequest="40" Grid.Column="5"  Grid.Row="0" CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Text="DP" TextColor="White" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" />
+                    
+                    </Grid>
+                </Frame>
+
+                <!--<ContentView BackgroundColor="Transparent" Grid.Column="0">
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TabTappedCommand}" CommandParameter="1"></TapGestureRecognizer>
+                    </ContentView.GestureRecognizers>
+                </ContentView>-->
+                <!--<ContentView Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">
+                <CollectionView x:Name="CollectionV">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView Content="{Binding Content}" />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ContentView>
+            <ContentView Grid.Row="4" Grid.ColumnSpan="3">
+            </ContentView>-->
+                <ContentView Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="1">
+                    <CarouselView x:Name="Caru"
+                              ItemsSource="{Binding LCV}"
+                              CurrentItem="{Binding CurrentItem}"
+                              Position="{Binding Position}"
+                              CurrentItemChangedCommand="{Binding ItemChangedCommand}"
+                              CurrentItemChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=CurrentItem}"
+                              PositionChangedCommand="{Binding PositionChangedCommand}"
+                              PositionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=Position}">
+                        <CarouselView.EmptyView>
+                            <Label Text="No items currently exist!" />
+                        </CarouselView.EmptyView>
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    Margin="0"
+                                    Padding="0"                                  
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand">
+
+                                    <ContentView x:Name="ContentViewListView" Content="{Binding Content}" />
+                                </Frame>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </ContentView>
+
+                <!--<ContentView BackgroundColor="Transparent" Grid.ColumnSpan="3" Grid.Row="2">
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TabTappedCommand}" CommandParameter="1"></TapGestureRecognizer>
+                </ContentView.GestureRecognizers>
+                <ContentView.Content>
+                    <ListView x:Name="ListViewMinusTwo"
+                             ItemsSource="{Binding Tests}"
+            IsGroupingEnabled="False"
+            CachingStrategy="RecycleElement"
+            RowHeight="-1"
+            HasUnevenRows="True"
+            BackgroundColor="#324458">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Margin="15,0,15,20" Padding="4,4,20,4" BackgroundColor="#3e5366">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="25" />
+                                                <RowDefinition Height="25" />
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50" />
+                                                <ColumnDefinition Width="6*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="3,3,0,3"  BackgroundColor="#3481ad" TextColor="#a7d5f9" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Text="{Binding Name}" />
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ContentView.Content>
+            </ContentView>-->
+
+                <ContentView BackgroundColor="Transparent" Grid.Column="1">
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TabTappedCommand}" CommandParameter="2"></TapGestureRecognizer>
+                    </ContentView.GestureRecognizers>
+                </ContentView>
+
+                <ContentView BackgroundColor="Transparent" Grid.Column="2">
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TabTappedCommand}" CommandParameter="3"></TapGestureRecognizer>
+                    </ContentView.GestureRecognizers>
+                </ContentView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

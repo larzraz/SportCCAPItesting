@@ -9,14 +9,14 @@ namespace SportCCAPItesting.Models
     public class Category
     {
         [XmlElement(ElementName = "Tournament")]
-        public List<Tournament> Tournament { get; set; }
+        public List<Tournament> Tournaments { get; set; }
         [XmlAttribute(AttributeName = "id")]
         public string Id { get; set; }
         [XmlAttribute(AttributeName = "name")]
         public string Name { get; set; }
 
         [XmlElement(ElementName = "Tournaments")]
-        public Tournament T_Tournament { get; set; }
+        public Tournament Tournament { get; set; }
 
 
     }

@@ -15,7 +15,7 @@ namespace SportCCAPItesting.Models
         private bool _isVisible = false;
         private string _minutes;
         private Result _result;
-        private string _matchTime;
+
 
         [XmlElement(ElementName = "Competitors")]
         public Competitors Competitors { get; set; }
@@ -67,6 +67,9 @@ namespace SportCCAPItesting.Models
         public ObservableCollection<Goal> Goals { get; set; }
 
         public string CountryID { get; set; } = "1";
+
+        public string TournamentName { get; set; }
+
     }
 
     public class MatchList : List<Match>

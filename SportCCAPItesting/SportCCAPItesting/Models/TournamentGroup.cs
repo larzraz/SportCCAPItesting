@@ -9,5 +9,6 @@ namespace SportCCAPItesting.Models
     {
         public string Name { get; set; }
         public ObservableCollection<Match> Tournaments { get; set; }
+        public string Date { get; set; }
     }
 }

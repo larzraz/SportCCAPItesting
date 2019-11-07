@@ -12,11 +12,7 @@ namespace SportCCAPItesting.Data
     public class DataManager
     {       
         private const string Url = "http://data.livescorelink.com/";
-        private const string authID = "userID=vester&pass=vesterOff@3234!213";
-        //private const string authID = "userID=jasons&pass=jas@331";
-        
-        private List<Player> players = new List<Player>();
-        private List<Subcontest> subC = new List<Subcontest>();
+        private const string authID = "userID=vester&pass=vesterOff@3234!213";      
 
         private HttpClient GetClient()
         {
@@ -68,7 +64,9 @@ namespace SportCCAPItesting.Data
         public async Task<Sportccbetdata> GetAllPlayersByCountry(Country country)
         {
             HttpClient client = GetClient();
-            Sportccbetdata SportCollection = new Sportccbetdata();
+            List<Player> players = new List<Player>();
+        Sportccbetdata SportCollection = new Sportccbetdata();
+
 
             string te = country.Id;
             for (int i = 240; i < 260; i++)
@@ -100,12 +98,11 @@ namespace SportCCAPItesting.Data
         {
             HttpClient client = GetClient();
             
-            string result = await client.GetStringAsync(Url + "sportccfixtures.aspx?sport_id=" + sport.Id + "&" + authID + "&" + "fromDate=" + dt + "&toDate=" + dt);
+            string test = Url + "sportccfixtures.aspx?sport_id=" + sport.Id + "&" + authID + "&fromDate=" + dt.ToString("MM-dd-yy") + "&toDate=" + dt.ToString("MM-dd-yy");
+            string result = await client.GetStringAsync(Url + "sportccfixtures.aspx?sport_id=" + sport.Id + "&" + authID + "&fromDate=" + dt.ToString("MM-dd-yy") + "&toDate=" + dt.ToString("MM-dd-yy"));
             XmlSerializer Deserializer = new XmlSerializer(typeof(Sportccbetdata), new XmlRootAttribute("sportccbetdata"));
             var reader = new StringReader(result);
             Sportccbetdata SportCollection = (Sportccbetdata)Deserializer.Deserialize(reader);
-            
-           
             return SportCollection;
         }
 
@@ -151,6 +148,7 @@ namespace SportCCAPItesting.Data
         public async Task<Sportccbetdata> GetAllLeaguesByCountry(Country country)
         {
             HttpClient client = GetClient();
+                List<Subcontest> subC = new List<Subcontest>();
             Sportccbetdata SportCollection = new Sportccbetdata();
 
            

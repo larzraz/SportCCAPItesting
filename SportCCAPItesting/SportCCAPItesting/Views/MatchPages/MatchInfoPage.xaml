@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SportCCAPItesting.Views.MatchPages.MatchInfoPage"
+             BackgroundColor="#344459">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid HeightRequest="40">
+                <Button Text="Back" Clicked="Button_Clicked" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" />
+            </Grid>
+            <Grid HeightRequest="200" Margin="30,0,30,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="HomePic" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" Text="HLOGO" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" />
+                <Label x:Name="HomeTeam_Label" VerticalOptions="Fill" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" TextColor="White" Text="{Binding Match.HomeTeam.Name}" Grid.Row="2" Grid.Column="0"/>
+                <Label x:Name="LeagueName" HorizontalTextAlignment="Center" VerticalTextAlignment="End" TextColor="White" Text="{Binding Match.TournamentName}" Grid.Row="0" Grid.Column="1" />
+                <Label x:Name="Result" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Margin="30,0,30,0" VerticalOptions="Center" TextColor="White" BackgroundColor="#1f2936" Grid.Row="1" Grid.Column="1" Text="{Binding Match.Result.ScoreInfo.Score[0].Name}" FontSize="35"/>
+                <Label x:Name="AwayPic" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" Text="ALOGO" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" />
+                <Label x:Name="AwayTeam_Label" VerticalOptions="Fill" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" TextColor="White" Text="{Binding Match.AwayTeam.Name}" Grid.Row="2" Grid.Column="2"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

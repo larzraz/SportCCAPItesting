@@ -32,7 +32,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Label HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"  TextColor="white" Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
                                 <Label HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="0"  Grid.Column="0" BackgroundColor="#2D3334" Margin="0,3,0,3"  TextColor="#C4ced8" Text="LPic" />
-                                <Label HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  BackgroundColor="#2D3334" Grid.Row="0" Grid.Column="2"  TextColor="#C4ced8" Margin="0,3,0,3"  Text="30. SEP" />
+                                <Label HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  BackgroundColor="#2D3334" Grid.Row="0" Grid.Column="2"  TextColor="#C4ced8" Margin="0,3,0,3"  Text="{Binding Date}" />
 
                             </Grid>
                         </Frame>

@@ -15,12 +15,16 @@ namespace SportCCAPItesting.Views
     public partial class TodaysMatchesViewByCountry : ContentPage
     {
         TodaysMatchesByCountryViewModel tmbc;
-      
+         public string Name = "hest";
+        public ListView MyProperty { get; set; }
+
         public TodaysMatchesViewByCountry()
         {
+            
             InitializeComponent();
             BindingContext = tmbc;
-           
+            MyProperty = this.MyListView;
+            
         }
         public TodaysMatchesViewByCountry(Country country)
         {

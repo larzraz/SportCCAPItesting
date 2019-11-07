@@ -34,7 +34,7 @@ namespace SportCCAPItesting.Views
         {
             Sportccbetdata scc = await dataManager.GetLeagueTableByLeagueID(_tournamentID);
 
-            foreach (Tournament tour in scc.Category.Tournament)
+            foreach (Tournament tour in scc.Category.Tournaments)
             {
                 
                 
