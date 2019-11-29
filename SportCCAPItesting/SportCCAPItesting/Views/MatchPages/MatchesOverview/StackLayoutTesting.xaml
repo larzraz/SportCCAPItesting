@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SportCCAPItesting.Views.MatchPages.MatchesOverview.StackLayoutTesting">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="John"/>
+            <ScrollView x:Name="scrView" Orientation="Horizontal"  >
+            <StackLayout x:Name="stkLayout"
+                             
+                Orientation="Horizontal"
+                
+                    >
+                
+                    <ContentView x:Name="ContentViewListView" Content="{Binding LCV[0].Content}" />
+                    <ContentView x:Name="ContentViewListView1" Content="{Binding LCV[1].Content}" />
+                    <ContentView x:Name="ContentViewListView2" Content="{Binding LCV[2].Content}" />
+                    <ContentView x:Name="ContentViewListView3" Content="{Binding LCV[3].Content}" />
+                    <ContentView x:Name="ContentViewListView4" Content="{Binding LCV[4].Content}" />
+
+                </StackLayout>
+            </ScrollView>
+            <Label Text="Jihn"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

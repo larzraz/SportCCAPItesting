@@ -18,10 +18,8 @@ namespace SportCCAPItesting.Views.MatchPages
         public MatchInfoPage(Match m)
         {
             MVM = new MatchInfoViewModel(m);
-            BindingContext = MVM;           
+            BindingContext = MVM;
             InitializeComponent();
-            
-
             
         }
 

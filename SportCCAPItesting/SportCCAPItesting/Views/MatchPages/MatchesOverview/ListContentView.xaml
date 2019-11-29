@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:controls="clr-namespace:SportCCAPItesting"
+             x:Class="SportCCAPItesting.Views.ListContentView">
+  <ContentView.Content>
+
+        <ScrollView Orientation="Vertical">
+      <StackLayout>
+           
+            <controls:NestedScroll x:Name="MyListView"
+            ItemTapped="Handle_ItemTapped"
+            IsGroupingEnabled="True"
+            IsNestedScroll="True"
+            SeparatorVisibility="None"          
+            RowHeight="-1"
+            HasUnevenRows="True"
+            BackgroundColor="#324458"            
+            >
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                                <Frame Margin="0,0,0,0" Padding="0,0,0,0" BorderColor="#223547" BackgroundColor="#223547" CornerRadius="0" >
+                            <Frame Margin="0,15,0,0" Padding="0,8,0,8" BackgroundColor="#314558" CornerRadius="0" >
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="13.33" />
+                                        <ColumnDefinition Width="23.66" />
+                                        <ColumnDefinition Width="7*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"  TextColor="white" Grid.Row="0" Grid.Column="2" Text="{Binding Name}"/>
+                                            <BoxView BackgroundColor="#223547" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="0,5,0,5"/>
+                                            <BoxView BackgroundColor="White" Grid.Row="0" Grid.Column="1" CornerRadius="50" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" Margin="0,0,2,0"/>
+                                            <Image Source="{Binding LeaguePicture.Source}" Grid.Column="1" Grid.Row="0"></Image> 
+                                            <BoxView BackgroundColor="#223547" VerticalOptions="Fill" HorizontalOptions="Fill"  Grid.Column="3" Grid.Row="0" CornerRadius="5,0,5,0"/>
+                                            <Label HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"   Grid.Row="0" Grid.Column="3"  TextColor="#C4ced8" Margin="0,3,0,3"  Text="{Binding Date}" />
+
+                                </Grid>
+                            </Frame>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+
+
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell>
+                        <Frame Margin="15,0,15,7" Padding="4,4,20,4" BackgroundColor="#3e5366" >
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                        <BoxView BackgroundColor="#3481ad" VerticalOptions="Fill" HorizontalOptions="Fill" CornerRadius="5" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="3,3,0,3" />
+                                        <Label HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="3,3,0,3"   TextColor="#a7d5f9" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Text="{Binding MatchTime}"/>
+                                <Label HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"  Grid.Row="0"  Grid.Column="1" TextColor="#C4ced8" Text="{Binding HomeTeam.Name}" />
+                                <Label HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand" Margin="0,0,0,5"  Grid.Row="1"  Grid.Column="1" TextColor="#C4ced8" Text="{Binding AwayTeam.Name}" />
+                                <Label HorizontalOptions="End"  VerticalOptions="CenterAndExpand"  Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" TextColor="#C4ced8" Text="PIC" />
+
+                            </Grid>
+
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </controls:NestedScroll>
+        </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

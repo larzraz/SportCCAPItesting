@@ -26,11 +26,17 @@ namespace SportCCAPItesting.ViewModels
 
 
 
-        public string TodayDateMinusTwoString { get { return TodayDateMinusTwo.ToString("ddd " + "d"); } }
-        public string TodayDateMinusOneString { get { return TodayDateMinusOne.ToString("ddd " + "d"); } }
+        public string TodayDateMinusTwoString { get { return TodayDateMinusTwo.ToString("ddd"); } }
+        public string TodayDateMinusOneString { get { return TodayDateMinusOne.ToString("ddd"); } }
         public string TodayString { get { return "Today"; } }
-        public string TodayDatePlusOneString { get { return TodayDatePlusOne.ToString("ddd " + "d"); } }
-        public string TodayDatePlusTwoString { get { return TodayDatePlusTwo.ToString("ddd " + "d"); } }
+        public string TodayDatePlusOneString { get { return TodayDatePlusOne.ToString("ddd"); } }
+        public string TodayDatePlusTwoString { get { return TodayDatePlusTwo.ToString("ddd"); } }
+
+        public string TodayDateMinusTwoDateString { get { return TodayDateMinusTwo.Day.ToString(); } }
+        public string TodayDateMinusOneDateString { get { return TodayDateMinusOne.Day.ToString(); } }
+        public string TodayDateString { get { return Today.Day.ToString(); } }
+        public string TodayDatePlusOneDateString { get { return TodayDatePlusOne.Day.ToString(); } }
+        public string TodayDatePlusTwoDateString { get { return TodayDatePlusTwo.Day.ToString(); } }
 
 
         public ObservableCollection<ListContentView> LCV { get { return _lcv; } set { _lcv = value; OnPropertyChanged("LCV"); } }
@@ -51,6 +57,7 @@ namespace SportCCAPItesting.ViewModels
             HasPropertyValueChangedToday = true;
             OnPropertyChanged("HasPropertyValueChangedToday");
             OnPropertyChanged("Position");
+            
         }
 
         //Methods
@@ -65,6 +72,7 @@ namespace SportCCAPItesting.ViewModels
                 new ListContentView(TodayDatePlusTwo),
                 new ListContentView(Today)
             };
+            
         }
 
         private void ItemChanged(ListContentView obj)

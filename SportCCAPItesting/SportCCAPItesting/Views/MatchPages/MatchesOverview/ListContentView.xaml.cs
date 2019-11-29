@@ -1,6 +1,7 @@
 ﻿using SportCCAPItesting.Models;
 using SportCCAPItesting.ViewModels;
 using SportCCAPItesting.Views.MatchPages;
+using SportCCAPItesting.Views.MatchPages.MatchInfoPages.ContentViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,11 +37,12 @@ namespace SportCCAPItesting.Views
                 return;
             Match match = (Match)e.Item;
             var var = (App.Current.MainPage as TabbedPage).CurrentPage;
-          
+
             await (App.Current.MainPage as TabbedPage).CurrentPage.Navigation.PushModalAsync(
                   new MatchInfoPage(match));
-            
-           
+            //await (App.Current.MainPage as TabbedPage).CurrentPage.Navigation.PushModalAsync(
+            //     new OVP(match));
+
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;

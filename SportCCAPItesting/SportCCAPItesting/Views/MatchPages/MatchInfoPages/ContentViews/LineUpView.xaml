@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SportCCAPItesting.Views.MatchPages.MatchInfoPages.ContentViews.LineUpView"
+             x:viewModels="SportCCAPITestting.ViewModels;">
+             
+  <ContentView.Content>
+        <StackLayout BackgroundColor="#37474F">
+            <Label HorizontalOptions="Center" BackgroundColor="#1f2936" Text="{Binding Match.Result.ScoreInfo.Score[0].Name, FallbackValue=0-0}" />
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewModels="clr-namespace:SportCCAPItesting.ViewModels"
+             x:Class="SportCCAPItesting.Views.MatchPages.MatchInfoPages.ContentViews.OverviewView">
+
+    <ContentView.Content>
+        <StackLayout BackgroundColor="#314558">
+            <Label Padding="4,1,4,1" Margin="0,15,0,50" x:Name="Halftime_Label" TextColor="White"  FontSize="25" HorizontalOptions="Center" BackgroundColor="#223547" Text="{Binding OVM.Match.Result.ScoreInfo.Score[1].Name, FallbackValue=0-0}" />
+            <Label Padding="4,1,4,1" x:Name="Fulltime_Label" HorizontalOptions="Center"  TextColor="White"  FontSize="25" BackgroundColor="#223547" Text="{Binding OVM.Match.Result.ScoreInfo.Score[0].Name, FallbackValue=0-0}" />
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>

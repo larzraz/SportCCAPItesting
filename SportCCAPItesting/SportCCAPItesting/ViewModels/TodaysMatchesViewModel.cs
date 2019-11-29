@@ -4,6 +4,7 @@ using SportCCAPItesting.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -171,10 +172,15 @@ namespace SportCCAPItesting.ViewModels
 
             foreach (Category cat in SportMatches.Sports.Sport.Category)
             {
+                if (Countries.Count == 0)
+                {
+                    await GetCountries();
+                }
                 var country3 = CountriesWithLiveGamesToday.FirstOrDefault(x => x.Id == cat.Id);
 
                 foreach (Tournament tour in cat.Tournaments)
                 {
+                    
                     var tournamentGroup = new TournamentGroup() { Name = tour.Name };
 
                     foreach (Match match in tour.Match)
@@ -203,13 +209,47 @@ namespace SportCCAPItesting.ViewModels
                                 match.AwayTeam = com;
                         }
                         match.TournamentName = tour.Name;
+                        match.TournamentId = tour.Id;
+                        match.HasTable = tour.Hastable;
                     }
                     tournamentGroup.Date = dt.ToString("d" + ". " + "MMM");
+                    tournamentGroup.LeaguePicture = SetLeaguePicture(tour, cat);
                     if(!Tournaments.Contains(tournamentGroup))
                     Tournaments.Add(tournamentGroup);
 
                 }
             }
+        }
+
+        private Image SetLeaguePicture(Tournament tour, Category c)
+        {
+            Image img = new Image { Aspect = Aspect.AspectFit };
+
+            if(c.Name == "International")
+            {
+                switch(tour.ContestGroupId){
+                    case "14":
+                        img.Source = ImageSource.FromResource("SportCCAPItesting.EL.png", typeof(TodaysMatchesViewModel).GetTypeInfo().Assembly);
+                        break;
+                    case "13":
+                        img.Source = ImageSource.FromResource("SportCCAPItesting.CL.png", typeof(TodaysMatchesViewModel).GetTypeInfo().Assembly);
+                        break;
+                    default:
+                        img.Source = ImageSource.FromResource("SportCCAPItesting.Ball.png", typeof(TodaysMatchesViewModel).GetTypeInfo().Assembly);
+                        break;
+                } 
+            }
+            else if(c.Name == "England")
+            {
+                img.Source = ImageSource.FromResource("SportCCAPItesting.ENG.png", typeof(TodaysMatchesViewModel).GetTypeInfo().Assembly);
+            }
+            else
+            {
+                img.Source = ImageSource.FromResource("SportCCAPItesting.Ball.png", typeof(TodaysMatchesViewModel).GetTypeInfo().Assembly);
+            }
+
+            return img;
+            
         }
 
         private async Task MakeCountriesList(Sport sportID)

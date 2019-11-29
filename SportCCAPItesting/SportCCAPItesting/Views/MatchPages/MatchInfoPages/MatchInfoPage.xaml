@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SportCCAPItesting.Views.MatchPages.MatchInfoPage"
+             BackgroundColor="#1E3042">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#90A4AE"/>
+               
+            </Style>
+            <Style x:Key="LabelChangedStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+               
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        
+        <StackLayout>
+            <Grid Margin="0,10,0,0" HeightRequest="60">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="Back" Clicked="Button_Clicked" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" />
+                <Label Text="{Binding Match.HomeTeam.Name}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" Grid.Row="0" Grid.Column="1"/>
+                <Label Text="VS" TextColor="Blue" Grid.Row="0" VerticalTextAlignment="Center" Grid.Column="2"/>
+                <Label Text="{Binding Match.AwayTeam.Name}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" Grid.Row="0" Grid.Column="3"/>
+                
+            </Grid>
+            <Grid HeightRequest="200" Margin="30,0,30,20" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="1.5*" />
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <BoxView Margin="0,5,0,5" x:Name="HomeTeam_bv" BackgroundColor="White" CornerRadius="50" WidthRequest="60"
+             HeightRequest="60"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"></BoxView>
+                <Label x:Name="HomePic" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" Text="HLOGO" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" />
+                
+                <Label x:Name="HomeTeam_Label" VerticalOptions="Fill" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" TextColor="White" Text="{Binding Match.HomeTeam.Name}" Grid.Row="2" Grid.Column="0"/>
+                <Label x:Name="LeagueName" HorizontalTextAlignment="Center" VerticalTextAlignment="End" TextColor="White" Text="{Binding Match.TournamentName}" Grid.Row="0" Grid.Column="1" />
+                <BoxView x:Name="Result_bv" BackgroundColor="#0D1F2F" CornerRadius="5"
+             WidthRequest="75"
+             HeightRequest="100"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" Grid.Column="1" Grid.Row="1"></BoxView> 
+                <Label x:Name="Result" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="30,0,30,0" VerticalOptions="Center" TextColor="White" Grid.RowSpan="1"  Grid.Row="1" Grid.Column="1" Text="{Binding Match.Result.ScoreInfo.Score[0].Name, FallbackValue=0-0}" FontSize="Large"/>
+                <BoxView Margin="0,5,0,5" x:Name="AwayTeam_bv" BackgroundColor="White" CornerRadius="50" WidthRequest="60"
+             HeightRequest="60"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"></BoxView>
+                <Label x:Name="AwayPic" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" Text="ALOGO" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" />
+                <Label x:Name="AwayTeam_Label" VerticalOptions="Fill" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" TextColor="White" Text="{Binding Match.AwayTeam.Name}" Grid.Row="2" Grid.Column="2"/>
+            </Grid>
+            <Grid HeightRequest="50" Margin="0,0,20,0">
+                <Label Text="Overview" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="0">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding HasPropertyValueChangedOverview}"
+                                             Value="True">
+                            <Setter Property="Style" Value="{StaticResource LabelChangedStyle}" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label Text="Line-Ups" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Style="{StaticResource LabelStyle}" Grid.Column="1" Grid.Row="0">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label"
+                                     Binding="{Binding HasPropertyValueChangedLineUps}"
+                                             Value="True">
+                        <Setter Property="Style" Value="{StaticResource LabelChangedStyle}" />
+                    </DataTrigger>
+                </Label.Triggers>
+                </Label>
+                <Label Text="Stats" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Style="{StaticResource LabelStyle}" Grid.Column="2" Grid.Row="0">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label"
+                                     Binding="{Binding HasPropertyValueChangedStats}"
+                                             Value="True">
+                        <Setter Property="Style" Value="{StaticResource LabelChangedStyle}" />
+                    </DataTrigger>
+                </Label.Triggers>
+                </Label>
+                <Label Text="H2H" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Style="{StaticResource LabelStyle}" Grid.Column="3" Grid.Row="0">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding HasPropertyValueChangedH2H}"
+                                             Value="True">
+                            <Setter Property="Style" Value="{StaticResource LabelChangedStyle}" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label Text="Table" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Style="{StaticResource LabelStyle}" Grid.Column="4" Grid.Row="0">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding HasPropertyValueChangedTable}"
+                                             Value="True">
+                            <Setter Property="Style" Value="{StaticResource LabelChangedStyle}" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+
+            </Grid>
+            <ContentView>
+                <CarouselView
+                    x:Name="CarouselMatch"
+
+                    ItemsSource="{Binding CV}"
+                               CurrentItem="{Binding CurrentItem}"
+                                  Position="{Binding Position}"
+                                  CurrentItemChangedCommand="{Binding ItemChangedCommand}"
+                                  CurrentItemChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=CurrentItem}"
+                                  PositionChangedCommand="{Binding PositionChangedCommand}"
+                                  PositionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=Position}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Margin="0"
+                                    Padding="0"                                  
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand">
+
+                                <ContentView x:Name="ContentViewListView" Content="{Binding Content}" />
+                            </Frame>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                
+            </ContentView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

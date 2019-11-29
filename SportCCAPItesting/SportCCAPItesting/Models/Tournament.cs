@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Xml.Serialization;
+using Xamarin.Forms;
 
 namespace SportCCAPItesting.Models
 {
@@ -42,13 +43,15 @@ namespace SportCCAPItesting.Models
         public string Hastable { get; set; }
 
         [XmlElement(ElementName = "Competitor")]
-        public List<Competitor> Competitor { get; set; }
+        public ObservableCollection<Competitor> Competitor { get; set; }
 
         [XmlAttribute(AttributeName = "ContestGroupName")]
         public string ContestGroupName { get; set; }
 
         [XmlAttribute(AttributeName = "SeasonName")]
         public string SeasonName { get; set; }
+
+       
 
 
     }

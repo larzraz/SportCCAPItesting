@@ -70,6 +70,11 @@ namespace SportCCAPItesting.Models
 
         public string TournamentName { get; set; }
 
+        public string TournamentId { get; set; }
+
+        public string HasTable { get; set; }
+        public bool IsFavorite { get; set; }
+
     }
 
     public class MatchList : List<Match>
