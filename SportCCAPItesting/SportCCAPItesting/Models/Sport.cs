@@ -61,8 +61,8 @@ namespace SportCCAPItesting.Models
         public Category Category { get; set; }
         [XmlElement(ElementName = "Error")]
         public Error Error { get; set; }
-        [XmlElement(ElementName = "events")]
-        public Events Events { get; set; }
+      //  [XmlElement(ElementName = "events")]
+      //  public Events Events { get; set; }
         [XmlAttribute(AttributeName = "latest")]
         public string Latest { get; set; }
 

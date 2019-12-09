@@ -211,6 +211,10 @@ namespace SportCCAPItesting.Data
             return SportCollection;
         }
 
+        public EventMockData GetEventMock()
+        {
+            return new EventMockData();
+        }
         public DataManager()
         {
             

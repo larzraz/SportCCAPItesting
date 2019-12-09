@@ -5,11 +5,249 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SportCCAPItesting.Views.MatchPages.MatchInfoPages.ContentViews.LineUpView"
-             x:viewModels="SportCCAPITestting.ViewModels;">
-             
+            
+             >
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="OuterBoxBall" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="42"/>
+                <Setter Property="WidthRequest" Value="42"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style x:Key="InnerBoxBallHome" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="BackgroundColor" Value="Red"/>
+            </Style>
+            <Style x:Key="InnerBoxBallAway" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="BackgroundColor" Value="LightBlue"/>
+            </Style>
+            <Style x:Key="NumberLabelHome" TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="NumberLabelAway" TargetType="Label">
+                <Setter Property="TextColor" Value="Purple"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="NameBox" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="WidthRequest" Value="70"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BackgroundColor" Value="#CEE9FB"/>
+            </Style>
+            <Style x:Key="NameLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="#042A3E"/>
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
   <ContentView.Content>
-        <StackLayout BackgroundColor="#37474F">
-            <Label HorizontalOptions="Center" BackgroundColor="#1f2936" Text="{Binding Match.Result.ScoreInfo.Score[0].Name, FallbackValue=0-0}" />
+        <ScrollView>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image Source="{Binding ImageField.Source}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
+            <ScrollView>
+            <StackLayout Orientation="Vertical" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="50"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Målmand -->
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="2" Grid.Row="0"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="2" Grid.Row="0"/>
+                <Label Text="1" Style="{StaticResource NumberLabelHome}" Grid.Row="0" Grid.Column="2"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="2" Grid.Row="1"/>
+                <Label Text="De Gea" Style="{StaticResource NameLabel}"  Grid.Row="1" Grid.Column="2"/>
+                <!-- Forsvar -->
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="0" Grid.Row="2"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="0" Grid.Row="2"/>
+                <Label Text="29" Style="{StaticResource NumberLabelHome}" Grid.Row="2" Grid.Column="0"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="0" Grid.Row="3"/>
+                <Label Text="Wan-Bissaka" Style="{StaticResource NameLabel}"  Grid.Row="3" Grid.Column="0"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="1" Grid.Row="2"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="1" Grid.Row="2"/>
+                <Label Text="2" Style="{StaticResource NumberLabelHome}" Grid.Row="2" Grid.Column="1"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="1" Grid.Row="3"/>
+                <Label Text="Lindelöf" Style="{StaticResource NameLabel}"  Grid.Row="3" Grid.Column="1"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="3" Grid.Row="2"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="3" Grid.Row="2"/>
+                <Label Text="5" Style="{StaticResource NumberLabelHome}" Grid.Row="2" Grid.Column="3"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="3" Grid.Row="3"/>
+                <Label Text="Maguire" Style="{StaticResource NameLabel}"  Grid.Row="3" Grid.Column="3"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="4" Grid.Row="2"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="4" Grid.Row="2"/>
+                <Label Text="23" Style="{StaticResource NumberLabelHome}" Grid.Row="2" Grid.Column="4"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="4" Grid.Row="3"/>
+                <Label Text="Shaw" Style="{StaticResource NameLabel}"  Grid.Row="3" Grid.Column="4"/>
+                <!-- Midtbane -->
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="0" Grid.Row="6"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="0" Grid.Row="6"/>
+                <Label Text="10" Style="{StaticResource NumberLabelHome}" Grid.Row="6" Grid.Column="0"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="0" Grid.Row="7"/>
+                <Label Text="Rashford" Style="{StaticResource NameLabel}"  Grid.Row="7" Grid.Column="0"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="1" Grid.Row="4"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="1" Grid.Row="4"/>
+                <Label Text="17" Style="{StaticResource NumberLabelHome}" Grid.Row="4" Grid.Column="1"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="1" Grid.Row="5"/>
+                <Label Text="Fred" Style="{StaticResource NameLabel}"  Grid.Row="5" Grid.Column="1"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="2" Grid.Row="6"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="2" Grid.Row="6"/>
+                <Label Text="14" Style="{StaticResource NumberLabelHome}" Grid.Row="6" Grid.Column="2"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="2" Grid.Row="7"/>
+                <Label Text="Lingaard" Style="{StaticResource NameLabel}"  Grid.Row="7" Grid.Column="2"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="3" Grid.Row="4"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="3" Grid.Row="4"/>
+                <Label Text="39" Style="{StaticResource NumberLabelHome}" Grid.Row="4" Grid.Column="3"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="3" Grid.Row="5"/>
+                <Label Text="McTominay" Style="{StaticResource NameLabel}"  Grid.Row="5" Grid.Column="3"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="4" Grid.Row="6"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="4" Grid.Row="6"/>
+                <Label Text="21" Style="{StaticResource NumberLabelHome}" Grid.Row="6" Grid.Column="4"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="4" Grid.Row="7"/>
+                <Label Text="James" Style="{StaticResource NameLabel}"  Grid.Row="7" Grid.Column="4"/>
+                <!-- Angreb -->
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="2" Grid.Row="8"/>
+                <BoxView Style="{StaticResource InnerBoxBallHome}" Grid.Column="2" Grid.Row="8"/>
+                <Label Text="9" Style="{StaticResource NumberLabelHome}" Grid.Row="8" Grid.Column="2"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="2" Grid.Row="9"/>
+                <Label Text="Martial" Style="{StaticResource NameLabel}"  Grid.Row="9" Grid.Column="2"/>
+            </Grid>
+            <Grid Margin="0,10,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Målmand -->
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="2" Grid.Row="0"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="2" Grid.Row="0"/>
+                    <Label Text="9" Style="{StaticResource NumberLabelAway}" Grid.Row="0" Grid.Column="2"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="2" Grid.Row="1"/>
+                <Label Text="Jesus" Style="{StaticResource NameLabel}"  Grid.Row="1" Grid.Column="2"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="1" Grid.Row="0"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="1" Grid.Row="0"/>
+                    <Label Text="20" Style="{StaticResource NumberLabelAway}" Grid.Row="0" Grid.Column="1"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="1" Grid.Row="1"/>
+                <Label Text="Silva" Style="{StaticResource NameLabel}"  Grid.Row="1" Grid.Column="1"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="3" Grid.Row="0"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="3" Grid.Row="0"/>
+                    <Label Text="7" Style="{StaticResource NumberLabelAway}" Grid.Row="0" Grid.Column="3"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="3" Grid.Row="1"/>
+                <Label Text="Sterling" Style="{StaticResource NameLabel}"  Grid.Row="1" Grid.Column="3"/>
+                <!-- Midtbane -->
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="3" Grid.Row="4"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="3" Grid.Row="4"/>
+                    <Label Text="21" Style="{StaticResource NumberLabelAway}" Grid.Row="4" Grid.Column="3"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="3" Grid.Row="5"/>
+                <Label Text="Silva" Style="{StaticResource NameLabel}"  Grid.Row="5" Grid.Column="3"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="1" Grid.Row="4"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="1" Grid.Row="4"/>
+                    <Label Text="17" Style="{StaticResource NumberLabelAway}" Grid.Row="4" Grid.Column="1"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="1" Grid.Row="5"/>
+                <Label Text="De Bruyne" Style="{StaticResource NameLabel}"  Grid.Row="5" Grid.Column="1"/>
+
+                <!-- Forsvar -->
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="0" Grid.Row="8"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="0" Grid.Row="8"/>
+                    <Label Text="2" Style="{StaticResource NumberLabelAway}" Grid.Row="8" Grid.Column="0"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="0" Grid.Row="9"/>
+                <Label Text="Walker" Style="{StaticResource NameLabel}"  Grid.Row="9" Grid.Column="0"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="1" Grid.Row="8"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="1" Grid.Row="8"/>
+                    <Label Text="5" Style="{StaticResource NumberLabelAway}" Grid.Row="8" Grid.Column="1"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="1" Grid.Row="9"/>
+                <Label Text="Stones" Style="{StaticResource NameLabel}"  Grid.Row="9" Grid.Column="1"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="2" Grid.Row="4"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="2" Grid.Row="4"/>
+                    <Label Text="16" Style="{StaticResource NumberLabelAway}" Grid.Row="4" Grid.Column="2"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="2" Grid.Row="5"/>
+                <Label Text="Rodri" Style="{StaticResource NameLabel}"  Grid.Row="5" Grid.Column="2"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="3" Grid.Row="8"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="3" Grid.Row="8"/>
+                    <Label Text="25" Style="{StaticResource NumberLabelAway}" Grid.Row="8" Grid.Column="3"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="3" Grid.Row="9"/>
+                <Label Text="Fernandinho" Style="{StaticResource NameLabel}"  Grid.Row="9" Grid.Column="3"/>
+
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="4" Grid.Row="8"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="4" Grid.Row="8"/>
+                    <Label Text="12" Style="{StaticResource NumberLabelAway}" Grid.Row="8" Grid.Column="4"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="4" Grid.Row="9"/>
+                <Label Text="Angelino" Style="{StaticResource NameLabel}"  Grid.Row="9" Grid.Column="4"/>
+                <!-- Målmand -->
+                <BoxView Style="{StaticResource OuterBoxBall}" Grid.Column="2" Grid.Row="10"/>
+                <BoxView Style="{StaticResource InnerBoxBallAway}" Grid.Column="2" Grid.Row="10"/>
+                    <Label Text="1" Style="{StaticResource NumberLabelAway}" Grid.Row="10" Grid.Column="2"/>
+                <BoxView Style="{StaticResource NameBox}" Grid.Column="2" Grid.Row="11"/>
+                <Label Text="Ederson" Style="{StaticResource NameLabel}"  Grid.Row="11" Grid.Column="2"/>
+            </Grid>
         </StackLayout>
-  </ContentView.Content>
+        </ScrollView>
+
+        </AbsoluteLayout>
+        </ScrollView>
+    </ContentView.Content>
 </ContentView>

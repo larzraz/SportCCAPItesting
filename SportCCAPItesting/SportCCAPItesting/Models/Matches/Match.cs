@@ -75,6 +75,7 @@ namespace SportCCAPItesting.Models
         public string HasTable { get; set; }
         public bool IsFavorite { get; set; }
 
+
     }
 
     public class MatchList : List<Match>

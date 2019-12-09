@@ -5,9 +5,58 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SportCCAPItesting.Views.MatchPages.MatchInfoPages.ContentViews.StatsView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
   <ContentView.Content>
-        <StackLayout BackgroundColor="#37474F">
-          <Label Text="Hello Xamarin.Forms!" />
+        <StackLayout >
+            <Grid BackgroundColor="#37474F">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="{Binding OVM.MatchStats.ActualPossesion[0]}" Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="0"/>
+                <ProgressBar Progress="{Binding OVM.MatchStats.Possesion[0]}" Grid.Row="0" Grid.Column="1" FlowDirection="RightToLeft"  ProgressColor="#4A9ACC"/>
+                <Label Text="Posessions" Style="{StaticResource LabelStyle}"  Grid.Row="0" Grid.Column="2" TextColor="White"/>
+                <ProgressBar Progress="{Binding OVM.MatchStats.Possesion[1]}" Grid.Row="0" Grid.Column="3"  ProgressColor="#4A9ACC"/>
+                <Label Text="{Binding OVM.MatchStats.ActualPossesion[1]}" Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="4"/>
+
+                <Label Text="{Binding OVM.MatchStats.ActualShots[0]}" Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="0"/>
+                <ProgressBar Progress="{Binding OVM.MatchStats.Shots[0]}" Grid.Row="1" Grid.Column="1" FlowDirection="LeftToRight" ProgressColor="#4A9ACC"/>
+                <Label Text="Shots" Grid.Row="1" Grid.Column="2" Style="{StaticResource LabelStyle}"/>
+                <ProgressBar Progress="{Binding OVM.MatchStats.Shots[1]}" Grid.Row="1" Grid.Column="3"  ProgressColor="#4A9ACC"/>
+                <Label Text="{Binding OVM.MatchStats.ActualShots[1]}" Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="4"/>
+
+                <Label Text="{Binding OVM.MatchStats.ActualFouls[0]}" Style="{StaticResource LabelStyle}" Grid.Row="2" Grid.Column="0"/>
+                <ProgressBar Progress="{Binding OVM.MatchStats.Fouls[0]}" Grid.Row="2" Grid.Column="1" FlowDirection="LeftToRight" ProgressColor="#4A9ACC"/>
+                <Label Text="Fouls" Grid.Row="2" Grid.Column="2" Style="{StaticResource LabelStyle}"/>
+                <ProgressBar Progress="{Binding OVM.MatchStats.Fouls[1]}"  Grid.Row="2" Grid.Column="3"  ProgressColor="#4A9ACC"/>
+                <Label Text="{Binding OVM.MatchStats.ActualFouls[1]}" Style="{StaticResource LabelStyle}" Grid.Row="2" Grid.Column="4"/>
+
+                <Label Text="{Binding OVM.MatchStats.ActualOffsides[0]}" Style="{StaticResource LabelStyle}" Grid.Row="3" Grid.Column="0"/>
+                <ProgressBar Progress="{Binding OVM.MatchStats.Offsides[0]}" Grid.Row="3" Grid.Column="1" FlowDirection="LeftToRight" ProgressColor="#4A9ACC"/>
+                <Label Text="Fouls" Grid.Row="3" Grid.Column="2" Style="{StaticResource LabelStyle}"/>
+                <ProgressBar Progress="{Binding OVM.MatchStats.Offsides[1]}" Grid.Row="3" Grid.Column="3"  ProgressColor="#4A9ACC"/>
+                <Label Text="{Binding OVM.MatchStats.ActualOffsides[1]}" Style="{StaticResource LabelStyle}" Grid.Row="3" Grid.Column="4"/>
+            </Grid>
       </StackLayout>
   </ContentView.Content>
 </ContentView>

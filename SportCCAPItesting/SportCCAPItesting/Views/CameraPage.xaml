@@ -3,15 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:r="clr-namespace:SportCCAPItesting.Views.Renderers"
              mc:Ignorable="d"
              x:Class="SportCCAPItesting.Views.CameraPage"
              IconImageSource="Camera.png"
              >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <FlexLayout
+            x:Name="Container"
+            JustifyContent="SpaceBetween" 
+            Direction="Column">
+            <FlexLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness" Default="0">
+                    <On Platform="iOS" Value="0,30"/>
+                </OnPlatform>
+            </FlexLayout.Margin>
+            <r:CameraPreview 
+                    x:Name="Camera"
+                    FlexLayout.Grow="1"
+                    Camera="Rear"
+                    BackgroundColor="Black"
+                    EncodingId="{Binding EncodingId}"
+                    Filename="{Binding Filename, Mode=TwoWay}"
+                    SaveCommand="{Binding SaveCommand}"
+                />
+        </FlexLayout>
     </ContentPage.Content>
 </ContentPage>

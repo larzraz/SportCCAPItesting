@@ -14,6 +14,7 @@
     <None Remove="CL.png" />
     <None Remove="EL.png" />
     <None Remove="ENG.png" />
+    <None Remove="Field.png"/>  
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +22,7 @@
     <EmbeddedResource Include="CL.png" />
     <EmbeddedResource Include="EL.png" />
     <EmbeddedResource Include="ENG.png" />
+    <EmbeddedResource Include="Field.png" />
   </ItemGroup>
 
   <ItemGroup>

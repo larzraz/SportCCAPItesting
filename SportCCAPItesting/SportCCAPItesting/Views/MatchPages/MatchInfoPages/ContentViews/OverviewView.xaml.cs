@@ -22,6 +22,7 @@ namespace SportCCAPItesting.Views.MatchPages.MatchInfoPages.ContentViews
             Match = match;
             BindingContext = OVM;          
             InitializeComponent();
+            
             //Fulltime_Label.SetBinding(Label.BindingContextProperty, OVM.Match.Result.ScoreInfo.Score[0].Name);
             //Halftime_Label.SetBinding(Label.BindingContextProperty,OVM.Match.Result.ScoreInfo.Score[1].Name);
         }
